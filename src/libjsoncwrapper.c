@@ -16,6 +16,7 @@ int create_json_int(void *jobj, const char *key, int value)
 	{
 		return -1;
 	}
+	(json_object*)jobj = json_object_new_object();
 	json_object_object_add((json_object*)jobj, key, json_object_new_int(value));
 	return 0;
 }
@@ -27,6 +28,7 @@ int create_json_boolean(void *jobj, const char *key, int value)
 	{
 		return -1;
 	}
+	(json_object*)jobj = json_object_new_object();
 	json_object_object_add((json_object*)jobj, key, json_object_new_boolean(value));	
 	return 0;
 }
@@ -37,6 +39,7 @@ int create_json_double(void *jobj, const char *key, double value)
 	{
 		return -1;
 	}
+	(json_object*)jobj = json_object_new_object();
 	json_object_object_add((json_object*)jobj, key, json_object_new_double(value));
 	return 0;
 }
@@ -47,6 +50,7 @@ int create_json_string(void *jobj, const char *key, const char *value)
 	{
 		return -1;
 	}
+	(json_object*)jobj = json_object_new_object();
 	json_object_object_add((json_object*)jobj, key, json_object_new_string(value));
 	return 0;
 }
@@ -57,6 +61,7 @@ int create_json_array(void *jobj, const char *key, void *jarr)
 	{
 		return -1;
 	}
+	(json_object*)jobj = json_object_new_object();
 	json_object_object_add(( json_object*)jobj, key, (json_object*)jarr);
 	return 0;
 }
@@ -71,7 +76,16 @@ int embed_object(void *jobj1, const char *key, void *jobj2)
 	return 0;
 }
 
-
+int embed_object_new(void *jobj1, const char *key, void *jobj2)
+{
+	if( key == NULL )
+	{
+		return -1;
+	}
+	(json_object*)jobj1 = json_object_new_object();
+	json_object_object_add((json_object*)jobj1, key, (json_object*)jobj2);
+	return 0;
+}
 
 int json_object_to_string(void *jobj, char *json_in_string)
 {
