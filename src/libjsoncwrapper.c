@@ -6,90 +6,90 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <json-c/json.h>
 #include "libjsoncwrapper.h"
 
 
-int create_json_int(void *jobj, const char *key, int value)
+int new_jobj_int_val(json_object *jobj, const char *key, int value)
 {
 	if( key == NULL )
 	{
 		return -1;
 	}
-	(json_object*)jobj = json_object_new_object();
-	json_object_object_add((json_object*)jobj, key, json_object_new_int(value));
+	jobj = json_object_new_object();
+	json_object_object_add(jobj, key, json_object_new_int(value));
 	return 0;
 }
 
 
-int create_json_boolean(void *jobj, const char *key, int value)
+int new_jobj_bool_val(json_object *jobj, const char *key, int value)
 {
 	if( key == NULL )
 	{
 		return -1;
 	}
-	(json_object*)jobj = json_object_new_object();
-	json_object_object_add((json_object*)jobj, key, json_object_new_boolean(value));	
+	jobj = json_object_new_object();
+	json_object_object_add(jobj, key, json_object_new_boolean(value));	
 	return 0;
 }
 
-int create_json_double(void *jobj, const char *key, double value)
+int new_jobj_double_val(json_object *jobj, const char *key, double value)
 {
 	if( key == NULL )
 	{
 		return -1;
 	}
-	(json_object*)jobj = json_object_new_object();
-	json_object_object_add((json_object*)jobj, key, json_object_new_double(value));
+	jobj = json_object_new_object();
+	json_object_object_add(jobj, key, json_object_new_double(value));
 	return 0;
 }
 
-int create_json_string(void *jobj, const char *key, const char *value)
+int new_jobj_string_val(json_object *jobj, const char *key, const char *value)
 {
 	if( key == NULL || value == NULL )
 	{
 		return -1;
 	}
-	(json_object*)jobj = json_object_new_object();
-	json_object_object_add((json_object*)jobj, key, json_object_new_string(value));
+	jobj = json_object_new_object();
+	json_object_object_add(jobj, key, json_object_new_string(value));
 	return 0;
 }
 
-int create_json_array(void *jobj, const char *key, void *jarr)
+int new_jobj_jarr_val(json_object *jobj, const char *key, json_object *jarr)
 {
 	if( key == NULL )
 	{
 		return -1;
 	}
-	(json_object*)jobj = json_object_new_object();
-	json_object_object_add(( json_object*)jobj, key, (json_object*)jarr);
+	(jobj = json_object_new_object();
+	json_object_object_add(jobj, key, jarr);
 	return 0;
 }
 
-int embed_object(void *jobj1, const char *key, void *jobj2)
+int new_jobj_jobj_val(json_object *jobj1, const char *key, json_object *jobj2)
 {
 	if( key == NULL )
 	{
 		return -1;
 	}
-	json_object_object_add((json_object*)jobj1, key, (json_object*)jobj2);
+	jobj1 = json_object_new_object();
+	json_object_object_add(jobj1, key, jobj2);
 	return 0;
 }
 
-int embed_object_new(void *jobj1, const char *key, void *jobj2)
+int embed_object(json_object *jobj1, const char *key, json_object *jobj2)
 {
 	if( key == NULL )
 	{
 		return -1;
 	}
-	(json_object*)jobj1 = json_object_new_object();
-	json_object_object_add((json_object*)jobj1, key, (json_object*)jobj2);
+	json_object_object_add(jobj1, key, jobj2);
 	return 0;
 }
 
-int json_object_to_string(void *jobj, char *json_in_string)
+
+
+int json_object_to_string(json_object *jobj, char *json_in_string)
 {
-	jobj = (json_object *)jobj;
 	char *json_in_string_ptr = NULL;
 
 	if( jobj == NULL )
