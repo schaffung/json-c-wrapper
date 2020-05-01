@@ -34,7 +34,8 @@ int new_json_array_json_object_value(void *jarr, void *jobj);
 int embed_object(void *jobj1, const char *key, void *jobj2);
 int embed_object_new(void *jobj1, const char *key, void *jobj2);
 
-// No need to allocate memory for the json_in_string as it will be done in the function.
+// No need to allocate memory for the json_in_string as it will be done in the function. Hence just pass
+// the char pointer.
 int json_object_to_string(void *jobj, char *json_in_string);
 
 #endif LIBJSONCWRAPPER_H_
