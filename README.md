@@ -38,7 +38,7 @@ The return value is such that 0 is success and negative values should ring a ala
 |7.|int new_jobj_bool_arr(json_object \*jobj, const char \*\*key_arr, int \*value, int int_arr_len)|
 |8.|int new_jobj_int_arr(json_object \*jobj, const char \*\*key_arr, int \*int_arr, int int_arr_len)|
 |9.|int new_jobj_double_arr(json_object \*jobj, const char \*\*key_arr, double \*double_arr, int double_arr_len)|
-|10.|int new_jobj_string_arr(json_object \*jobj, const char \*\*key_arr, char \*\*string_arr, int string_arr_len)|
+|10.|int new_jobj_string_arr(json_object \*jobj, const char \*\*key_arr, const char \*\*string_arr, int string_arr_len)|
 |11.|int new_jobj_jobj_arr(json_object \*jobj, const char \*\*key_arr, json_object \*\*jobj_arr, int jobj_arr_len)|
 |12.|int new_jobj_jarr_arr(json_object \*jobj, const char \*\*key_arr, json_object \*\*jarr_arr, int jarr_arr_len)|
 
@@ -58,7 +58,7 @@ I think the topic is enough to understand the operation being undertaken here. B
 |7.|int push_jobj_bool_arr(json_object \*jobj, const char \*\*key_arr, int \*value, int int_arr_len)|
 |8.|int push_jobj_int_arr(json_object \*jobj, const char \*\*key_arr, int \*int_arr, int int_arr_len)|
 |9.|int push_jobj_double_arr(json_object \*jobj, const char \*\*key_arr, double \*double_arr, int double_arr_len)|
-|10.|int push_jobj_string_arr(json_object \*jobj, const char \*\*key_arr, char \*\*string_arr, int string_arr_len)|
+|10.|int push_jobj_string_arr(json_object \*jobj, const char \*\*key_arr, const char \*\*string_arr, int string_arr_len)|
 |11.|int push_jobj_jobj_arr(json_object \*jobj, const char \*\*key_arr, json_object \*\*jobj_arr, int jobj_arr_len)|
 |12.|int push_jobj_jarr_arr(json_object \*jobj, const char \*\*key_arr, json_object \*\*jarr_arr, int jarr_arr_len)|
 
@@ -81,7 +81,35 @@ In addition to adding single elements like a string or integer or double value, 
 | 7. | int new_jarr_bool_arr(json_object \*jarr, int \*bool_arr, int int_bool_len)|
 | 8. | int new_jarr_int_arr(json_object \*jarr, int \*int_arr, int int_arr_len) |
 | 9. | int new_jarr_double_arr(json_object \*jarr, double \*double_arr, int double_arr_len) |
-| 10.| int new_jarr_string_arr(json_object \*jarr, char \*\*string_arr, int string_arr_len) |
+| 10.| int new_jarr_string_arr(json_object \*jarr, const char \*\*string_arr, int string_arr_len) |
 | 11.|int new_jarr_jobj_arr(json_object \*jarr, json_object \*\*jobj_arr, int jobj_arr_len)|
 |12.|int new_jarr_jarr_arr(json_object \*jarr, json_object \*\*jarr_arr, int jarr_arr_len)|
+
+### Adding new element(s) into an existing JSON Array.
+
+As with the case of JSON objects, the following functions are for already existing JSON arrays, hence the arrays won't be initialized inside the function.
+
+|S No. | Function Declaration|  
+|:--:|------------------------------------------------------------------------|
+| 1. | int push_jarr_bool_val(json_object \*jarr, int value)        |  
+| 2. | int push_jarr_int_val(json_object \*jarr, int int_val)            |
+| 3. | int push_jarr_double_val(json_object \*jarr, double double_val)      |
+| 4. | int push_jarr_string_val(json_object \*jarr, const char \*string_val))|
+| 5. | int push_jarr_jarr_val(json_object \*jarr1, json_object \*jarr2)        |
+| 6. | int push_jarr_jobj_val(json_object \*jarr, json_object \*jobj) |
+| 7. | int push_jarr_bool_arr(json_object \*jarr, int \*bool_arr, int int_bool_len)|
+| 8. | int push_jarr_int_arr(json_object \*jarr, int \*int_arr, int int_arr_len) |
+| 9. | int push_jarr_double_arr(json_object \*jarr, double \*double_arr, int double_arr_len) |
+| 10.| int push_jarr_string_arr(json_object \*jarr, const char \*\*string_arr, int string_arr_len) |
+| 11.|int push_jarr_jobj_arr(json_object \*jarr, json_object \*\*jobj_arr, int jobj_arr_len)|
+|12.|int push_jarr_jarr_arr(json_object \*jarr, json_object \*\*jarr_arr, int jarr_arr_len)|
+
+
+### JSON to string.
+Now, for the conversion of a JSON object to string, I have created just one wrapper. I know that there might be a case when user would want to directly get the string form after creation of the JSON object but I think that would be over engineering. Some might agree some might disagree. I guess we would need a healthy debate in this. So for now, just one function which will take an object and return the string. One doesn't need to allocate memory for the char pointer being passed, it is done inside the function.
+
+| S No. | Function Declaration |
+| :--: | ---------------------|
+| 1. | int json_object_to_string(json_object \*jobj, char \*json_in_string)|
+
 
