@@ -47,7 +47,7 @@ int new_jarr_jobj_val(json_object *jarr, json_object *jobj);
 int new_jarr_bool_arr(json_object *jarr, int *bool_arr, int int_bool_len);
 int new_jarr_int_arr(json_object *jarr, int *int_arr, int int_arr_len);
 int new_jarr_double_arr(json_object *jarr, double *double_arr, int double_arr_len);
-int new_jarr_string_arr(json_object *jarr, char **string_arr, int string_arr_len);
+int new_jarr_string_arr(json_object *jarr, const char **string_arr, int string_arr_len);
 int new_jarr_jobj_arr(json_object *jarr, json_object **jobj_arr, int jobj_arr_len);
 int new_jarr_jarr_arr(json_object *jarr, json_object **jarr_arr, int jarr_arr_len);
 
@@ -61,7 +61,7 @@ int push_jarr_jobj_val(json_object *jarr, json_object *jobj);
 int push_jarr_bool_arr(json_object *jarr, int *bool_arr, int int_bool_len);
 int push_jarr_int_arr(json_object *jarr, int *int_arr, int int_arr_len);
 int push_jarr_double_arr(json_object *jarr, double *double_arr, int double_arr_len);
-int push_jarr_string_arr(json_object *jarr, char **string_arr, int string_arr_len);
+int push_jarr_string_arr(json_object *jarr, const char **string_arr, int string_arr_len);
 int push_jarr_jobj_arr(json_object *jarr, json_object **jobj_arr, int jobj_arr_len);
 int push_jarr_jarr_arr(json_object *jarr, json_object **jarr_arr, int jarr_arr_len);
 

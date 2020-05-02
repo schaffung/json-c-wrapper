@@ -567,7 +567,7 @@ int new_jarr_double_arr(json_object *jarr, double *double_arr, int double_arr_le
 }
 
 
-int new_jarr_string_arr(json_object *jarr, char **string_arr, int string_arr_len)
+int new_jarr_string_arr(json_object *jarr, const char **string_arr, int string_arr_len)
 {
 	if( string_arr_len < 1 )
 	{
@@ -777,7 +777,7 @@ int push_jarr_double_arr(json_object *jarr, double *double_arr, int double_arr_l
 }
 
 
-int push_jarr_string_arr(json_object *jarr, char **string_arr, int string_arr_len)
+int push_jarr_string_arr(json_object *jarr, const char **string_arr, int string_arr_len)
 {
 	if( string_arr_len < 1 || jarr == NULL )
 	{
