@@ -45,7 +45,7 @@ The return value is such that 0 is success and negative values should ring a ala
 
 ### Adding new element(s) into an existing JSON Object.
 
-I think the topic is enough to understand the operation being undertaken here. So jumping directly into the function declarations.
+I think the topic is enough to understand the operation being undertaken here. But still its safe to mention that the JSON objects aren't initialized inside the function as it is assumed that one is updating an existing JSON object. So jumping directly into the function declarations.
 
 |S No.| Function Declaration|  
 |:---:|------------------------------------------------------------------------|
