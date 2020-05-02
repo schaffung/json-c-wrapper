@@ -18,7 +18,7 @@ int new_jobj_jobj_val(json_object *jobj1, const char *key, json_object *jobj2);
 int new_jobj_bool_arr(json_object *jobj, const char **key_arr, int *bool_arr, int int_bool_len);
 int new_jobj_int_arr(json_object *jobj, const char **key_arr, int *int_arr, int int_arr_len);
 int new_jobj_double_arr(json_object *jobj, const char **key_arr, double *double_arr, int double_arr_len);
-int new_jobj_string_arr(json_object *jobj, const char **key_arr, char **string_arr, int string_arr_len);
+int new_jobj_string_arr(json_object *jobj, const char **key_arr, const char **string_arr, int string_arr_len);
 int new_jobj_jobj_arr(json_object *jobj, const char **key_arr, json_object **jobj_arr, int jobj_arr_len);
 int new_jobj_jarr_arr(json_object *jobj, const char **key_arr, json_object **jarr_arr, int jarr_arr_len);
 
@@ -70,4 +70,4 @@ int push_jarr_jarr_arr(json_object *jarr, json_object **jarr_arr, int jarr_arr_l
 // the char pointer.
 int json_object_to_string(json_object *jobj, char *json_in_string);
 
-#endif LIBJSONCWRAPPER_H_
+#endif
