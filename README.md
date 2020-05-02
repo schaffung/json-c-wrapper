@@ -18,7 +18,7 @@ The idea was to create set of wrapper functions for the already existing json-c 
 
 Now, The functions can be divided into a subsets which would be easier to see how they are useful to a user who might be dealing with JSON in everyday life.
 
-### Creating basic JSON object.
+### Creating new JSON Object with some initital element(s)
 
 This is when you want to create a new JSON object which will be one of the base types. 
 One needn't initialize the json_object when passing it to the function as an arguemnt, i.e. ``` json_object* jobj = json_object_new()``` operation would be taken care by the functions itself, hence the developer can use the json object just as any regualr variable (with strings attached though...)
@@ -41,6 +41,26 @@ The return value is such that 0 is success and negative values should ring a ala
 |10.|int new_jobj_string_arr(json_object \*jobj, const char \*\*key_arr, char \*\*string_arr, int string_arr_len)|
 |11.|int new_jobj_jobj_arr(json_object \*jobj, const char \*\*key_arr, json_object \*\*jobj_arr, int jobj_arr_len)|
 |12.|int new_jobj_jarr_arr(json_object \*jobj, const char \*\*key_arr, json_object \*\*jarr_arr, int jarr_arr_len)|
+
+
+### Adding new element(s) into an existing JSON Object.
+
+I think the topic is enough to understand the operation being undertaken here. But still its safe to mention that the JSON objects aren't initialized inside the function as it is assumed that one is updating an existing JSON object. So jumping directly into the function declarations.
+
+|S No.| Function Declaration|  
+|:---:|------------------------------------------------------------------------|
+|1.|int push_jobj_bool_val(json_object \*jobj, const char \*key, int value )        |  
+|2.|int push_jobj_int_val(json_object \*jobj, const char \*key, int value)            |
+|3.|int push_jobj_double_val(json_object \*jobj, const char \*key, double value)      |
+|4.|int push_jobj_string_val(json_object \*jobj, const char \*key, const char \*value)|
+|5.|int push_jobj_jarr_val(json_object \*jobj, const char \*key, json_object \*jarr)|
+|6.|int push_jobj_jobj_val(json_object \*jobj1, const char \*key, json_object \*jobj2)|
+|7.|int push_jobj_bool_arr(json_object \*jobj, const char \*\*key_arr, int \*value, int int_arr_len)|
+|8.|int push_jobj_int_arr(json_object \*jobj, const char \*\*key_arr, int \*int_arr, int int_arr_len)|
+|9.|int push_jobj_double_arr(json_object \*jobj, const char \*\*key_arr, double \*double_arr, int double_arr_len)|
+|10.|int push_jobj_string_arr(json_object \*jobj, const char \*\*key_arr, char \*\*string_arr, int string_arr_len)|
+|11.|int push_jobj_jobj_arr(json_object \*jobj, const char \*\*key_arr, json_object \*\*jobj_arr, int jobj_arr_len)|
+|12.|int push_jobj_jarr_arr(json_object \*jobj, const char \*\*key_arr, json_object \*\*jarr_arr, int jarr_arr_len)|
 
 
 ### Creating new JSON Array with some initital element(s)
