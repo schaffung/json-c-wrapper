@@ -12,6 +12,14 @@ Now, for the user out there, this is not a JSON library. I'm building upon a alr
 ## Dependency
 One would need to clone from the repository of [json-c/json-c](https://github.com/json-c/json-c), build it, because the wrapper is writtern over the said library.
 
+## Building the code.
+One can use the compile script in the scripts directory and simply run ```./compile```. This will create the deb package.
+Once the deb package is created, one can install the package using ```sudo dpkg -i <deb_package_name>```.
+> The deb package will be inside the build directory.
+
+## Using the wrapper functions
+One would need to include the header file ```libjsoncwrapper.h``` and also give a linking to ```libjsoncwrapper.so```
+
 ## API List
 
 The idea was to create set of wrapper functions for the already existing json-c library and hence there are various functions. This section deals with the description of the functions and how better to use it.
