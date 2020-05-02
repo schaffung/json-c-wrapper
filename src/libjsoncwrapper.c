@@ -63,7 +63,7 @@ int new_jobj_jarr_val(json_object *jobj, const char *key, json_object *jarr)
 	{
 		return -1;
 	}
-	(jobj = json_object_new_object();
+	jobj = json_object_new_object();
 	json_object_object_add(jobj, key, jarr);
 	return 0;
 }
@@ -137,7 +137,7 @@ int new_jobj_int_arr(json_object *jobj, const char **key_arr, int *int_arr, int 
 
 
 
-int new_jobj_double_arr(json_object *jobj, const char **key_arr, int *double_arr, int double_arr_len)
+int new_jobj_double_arr(json_object *jobj, const char **key_arr, double *double_arr, int double_arr_len)
 {
 	if( double_arr_len < 1 )
 	{
@@ -306,7 +306,7 @@ int push_jobj_jarr_val(json_object *jobj, const char *key, json_object *jarr)
 
 int push_jobj_jobj_val(json_object *jobj1, const char *key, json_object *jobj2)
 {
-	if( key == NULL || jobj == NULL )
+	if( key == NULL || jobj1 == NULL )
 	{
 		return -1;
 	}
@@ -435,7 +435,7 @@ int new_jarr_bool_val(json_object *jarr, int value)
 	return 0;
 }
 
-int new_jarr_int_val(json_object *jarr, int int_val);
+int new_jarr_int_val(json_object *jarr, int int_val)
 {
 	jarr = json_object_new_array();
 	json_object_array_add(jarr, json_object_new_int(int_val));
